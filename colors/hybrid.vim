@@ -1,7 +1,6 @@
 " File:       hybrid.vim
-" Maintainer: Andrew Wong (w0ng)
-" URL:        https://github.com/w0ng/vim-hybrid
-" Modified:   27 Jan 2013 07:33 AM AEST
+" Maintainer: Tiago Martins
+" URL:        https://github.com/tiagoamartins/vim-hybrid
 " License:    MIT
 
 " Description:"{{{
@@ -31,38 +30,6 @@
 " In order to have Vim use the same colours as gVim (the way this colour scheme
 " is intended), it is recommended that you define the basic 16 colours in your
 " terminal.
-"
-" For Linux users (rxvt-unicode, xterm):
-"
-" 1.  Add the default palette to ~/.Xresources:
-"
-"         https://gist.github.com/3278077
-"
-"     or alternatively, add the reduced contrast palette to ~/.Xresources:
-"
-"         https://gist.github.com/w0ng/16e33902508b4a0350ae
-"
-" 2.  Add to ~/.vimrc:
-"
-"         let g:hybrid_custom_term_colors = 1
-"         let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"         colorscheme hybrid
-"
-" For OSX users (iTerm):
-"
-" 1.  Import the default colour preset into iTerm:
-"
-"         https://raw.githubusercontent.com/w0ng/dotfiles/master/iterm2/hybrid.itermcolors
-"
-"     or alternatively, import the reduced contrast color preset into iTerm:
-"
-"         https://raw.githubusercontent.com/w0ng/dotfiles/master/iterm2/hybrid-reduced-contrast.itermcolors
-"
-" 2.  Add to ~/.vimrc:
-"
-"         let g:hybrid_custom_term_colors = 1
-"         let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"         colorscheme hybrid
 
 "}}}
 " Initialisation:"{{{
@@ -426,6 +393,7 @@ let &background = s:style
 " Copyright (c) 2011 Ethan Schoonover
 " Copyright (c) 2009-2012 NanoTech
 " Copyright (c) 2012 w0ng
+" Copyright (c) 2021 Tiago Martins
 "
 " Permission is hereby granted, free of charge, to any per‐
 " son obtaining a copy of this software and associated doc‐
