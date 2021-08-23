@@ -86,6 +86,7 @@ let s:palette.gui.darkblue   = { 'dark' : "#00005f"        , 'light' : "#d7ffd7"
 let s:palette.gui.darkcyan   = { 'dark' : "#005f5f"        , 'light' : "#005f00" }
 let s:palette.gui.darkred    = { 'dark' : "#5f0000"        , 'light' : "#d7d7ff" }
 let s:palette.gui.darkpurple = { 'dark' : "#5f005f"        , 'light' : "#5f005f" }
+let s:palette.gui.darktext   = { 'dark' : "#6c6c6c"        , 'light' : "#000000" }
 
 if exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
   let s:cterm_foreground = "15"  " White
@@ -138,6 +139,7 @@ let s:palette.cterm.darkblue   = { 'dark' : "17"               , 'light' : "194"
 let s:palette.cterm.darkcyan   = { 'dark' : "24"               , 'light' : "22"  }
 let s:palette.cterm.darkred    = { 'dark' : "52"               , 'light' : "189" }
 let s:palette.cterm.darkpurple = { 'dark' : "53"               , 'light' : "53"  }
+let s:palette.cterm.darktext   = { 'dark' : "242"              , 'light' : "16"  }
 
 "}}}
 " Formatting Options:"{{{
@@ -187,6 +189,7 @@ call s:build_prim('bg', 'darkblue')
 call s:build_prim('bg', 'darkcyan')
 call s:build_prim('bg', 'darkred')
 call s:build_prim('bg', 'darkpurple')
+call s:build_prim('bg', 'darktext')
 
 let s:fg_none = ' guifg=NONE ctermfg=NONE'
 call s:build_prim('fg', 'foreground')
@@ -211,6 +214,7 @@ call s:build_prim('fg', 'darkblue')
 call s:build_prim('fg', 'darkcyan')
 call s:build_prim('fg', 'darkred')
 call s:build_prim('fg', 'darkpurple')
+call s:build_prim('fg', 'darktext')
 
 exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
 exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
@@ -284,8 +288,10 @@ exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue    .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_darkcyan    .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred     .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_purple      .s:bg_darkpurple  .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_comment     .s:bg_background  .s:fmt_revr
-exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
+exe "hi! StatusLine"    .s:fg_foreground  .s:bg_line        .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_darktext    .s:bg_window      .s:fmt_none
+exe "hi! StatusLineTerm" .s:fg_foreground .s:bg_line        .s:fmt_none
+exe "hi! StatusLineTermNC" .s:fg_darktext .s:bg_window      .s:fmt_none
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "   TabLineFill"
 "   TabLineSel"
