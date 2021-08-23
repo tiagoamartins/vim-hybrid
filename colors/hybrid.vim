@@ -87,6 +87,7 @@ let s:palette.gui.darkcyan   = { 'dark' : "#005f5f"        , 'light' : "#005f00"
 let s:palette.gui.darkred    = { 'dark' : "#5f0000"        , 'light' : "#d7d7ff" }
 let s:palette.gui.darkpurple = { 'dark' : "#5f005f"        , 'light' : "#5f005f" }
 let s:palette.gui.darktext   = { 'dark' : "#6c6c6c"        , 'light' : "#000000" }
+let s:palette.gui.tabsel     = { 'dark' : "#444444"        , 'light' : "#9e9e9e" }
 
 if exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
   let s:cterm_foreground = "15"  " White
@@ -140,6 +141,7 @@ let s:palette.cterm.darkcyan   = { 'dark' : "24"               , 'light' : "22" 
 let s:palette.cterm.darkred    = { 'dark' : "52"               , 'light' : "189" }
 let s:palette.cterm.darkpurple = { 'dark' : "53"               , 'light' : "53"  }
 let s:palette.cterm.darktext   = { 'dark' : "242"              , 'light' : "16"  }
+let s:palette.cterm.tabsel     = { 'dark' : "238"              , 'light' : "247" }
 
 "}}}
 " Formatting Options:"{{{
@@ -190,6 +192,7 @@ call s:build_prim('bg', 'darkcyan')
 call s:build_prim('bg', 'darkred')
 call s:build_prim('bg', 'darkpurple')
 call s:build_prim('bg', 'darktext')
+call s:build_prim('bg', 'tabsel')
 
 let s:fg_none = ' guifg=NONE ctermfg=NONE'
 call s:build_prim('fg', 'foreground')
@@ -215,6 +218,7 @@ call s:build_prim('fg', 'darkcyan')
 call s:build_prim('fg', 'darkred')
 call s:build_prim('fg', 'darkpurple')
 call s:build_prim('fg', 'darktext')
+call s:build_prim('fg', 'tabsel')
 
 exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
 exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
@@ -292,9 +296,9 @@ exe "hi! StatusLine"    .s:fg_foreground  .s:bg_line        .s:fmt_none
 exe "hi! StatusLineNC"  .s:fg_darktext    .s:bg_window      .s:fmt_none
 exe "hi! StatusLineTerm" .s:fg_foreground .s:bg_line        .s:fmt_none
 exe "hi! StatusLineTermNC" .s:fg_darktext .s:bg_window      .s:fmt_none
-exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
-"   TabLineFill"
-"   TabLineSel"
+exe "hi! TabLine"       .s:fg_darktext    .s:bg_line        .s:fmt_none
+exe "hi! TabLineFill"   .s:fg_darktext    .s:bg_line        .s:fmt_none
+exe "hi! TabLineSel"    .s:fg_foreground  .s:bg_tabsel      .s:fmt_bold
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 "   VisualNos"
